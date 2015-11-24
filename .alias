@@ -13,17 +13,8 @@ alias lt ls -ltF
 
 # TOOLS
 alias dsa.linux /depot/dsa2006.06.0/bin/dsa.linux
-alias git /depot/git-2.2.0/bin/git
 alias nedit /depot/nedit-5.5/bin/nedit
 alias python2.7 /depot/Python-2.7.2/bin/python2.7
-
-set VIMPATH=/depot/vim-7.3
-grep Solaris /etc/motd >& /dev/null
-if ( $? == "1" ) then
-    set VIMPATH=/depot/vim7.4-python-2.7.8
-endif
-alias gvim $VIMPATH/bin/gvim
-alias vim $VIMPATH/bin/vim
 
 # WINDOWS TERMINAL SERVER
 alias winterm rdesktop -a 24 -g 1270x1000 -u SYNOPSYS\\jserras pt01vwxenapp1
