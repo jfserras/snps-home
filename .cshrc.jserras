@@ -5,7 +5,23 @@ set autolist = expand
 
 unsetenv XMODIFIERS
 
-setenv OSVER `grep OS /etc/motd | cut -d" " -f9,10,11,12,13`
+set OSVER=`grep OS /etc/motd | cut -d" " -f9,10,11,12,13`
+set ISLINUX=`echo $OSVER | grep Linux`
+set ISSOLARIS=`echo $OSVER | grep Solaris`
+
+# GIT
+if ( "$ISLINUX" != "") then
+    set GITPATH=/depot/git-2.2.0
+    setenv PATH $GITPATH/bin:$PATH
+    setenv MANPATH $GITPATH/man:$MANPATH
+endif
+
+# VIM
+set VIMPATH=/depot/vim-7.3
+if ( "$ISLINUX" != "" ) then
+    set VIMPATH=/depot/vim7.4-python-2.7.8
+endif
+setenv PATH $VIMPATH/bin:$PATH
 
 if (-f ~/.alias ) then
     source ~/.alias
