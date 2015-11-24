@@ -1,0 +1,12 @@
+#!/bin/tcsh
+
+# to enable filename auto-completion
+set autolist = expand 
+
+unsetenv XMODIFIERS
+
+setenv OSVER `grep OS /etc/motd | cut -d" " -f9,10,11,12,13`
+
+if (-f ~/.alias ) then
+    source ~/.alias
+endif
